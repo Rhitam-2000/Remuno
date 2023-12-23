@@ -3,18 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Circular Button</title>
+    <title>Playing components</title>
     <link rel="stylesheet" href="assets/bootstrap.min.css" />
-    <link rel="stylesheet" href="q.css" />
+    <link rel="stylesheet" href="css/q.css" />
     <script
       src="https://kit.fontawesome.com/63580e7368.js"
       crossorigin="anonymous"
     ></script>
-    <style></style>
+    <style>
+      .footer{
+        width:100%;
+        position: absolute;
+        bottom: 0;
+        left:0;
+      }
+    </style>
   </head>
 
   <body>
-    <audio controls id="song">
+    <div class="footer">
+    <audio  id="song">
       <source
         src="songs/Bet You Wanna (feat. Cardi B) - BLACKPINK, Cardi B.mp3"
       />
@@ -22,7 +30,7 @@
     <div class="container-fluid p-2 row">
       <div class="col-4 d-none d-md-flex">
         <div class="box">
-          <img src="img.jpeg" class="img-fluid" alt="Your Image" />
+          <img src="assets/images/img.jpeg" class="img-fluid" alt="Your Image" />
         </div>
         <div>
           <h2>title</h2>
@@ -52,6 +60,7 @@
         </div>
       </div>
     </div>
-    <script src="media-play.js"></script>
+    <script src="javascript/media-play.js"></script>
+    </div>
   </body>
 </html>
