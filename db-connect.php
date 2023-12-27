@@ -8,7 +8,7 @@
         if($conn->connect_error){
             echo "Connection Error".$conn->connect_error;
         } else {
-            echo "Connection Successful";
+            // echo "Connection Successful";
         }
     } catch (Exception $e){
         echo "Check Credentials<br>";

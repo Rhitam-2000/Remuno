@@ -21,10 +21,26 @@
   </head>
 
   <body>
+    <?php 
+    function display_footer($songid){
+      require_once("db-connect.php");
+      $qry="SELECT * FROM song where songid=$songid";
+      $res=$conn->query($qry);
+      $name="";
+      $id="";
+      $path="";
+      $author="";
+      if($data=$res->fetch_assoc()){
+        $name=$data["sname"];
+        $id=$data["songid"];
+        $path=$data["path"];
+        $author=$data["sartist"];
+      }
+      ?>
     <div class="footer">
     <audio  id="song">
-      <source
-        src="songs/Bet You Wanna (feat. Cardi B) - BLACKPINK, Cardi B.mp3"
+      <source id="song-source"
+        src="<?php echo $path;?>"
       />
     </audio>
     <div class="container-fluid p-2 row">
@@ -33,8 +49,8 @@
           <img src="assets/images/img.jpeg" class="img-fluid" alt="Your Image" />
         </div>
         <div>
-          <h2>title</h2>
-          <p>details</p>
+          <h2><?php echo $name;?></h2>
+          <p><?php echo $author;?></p>
         </div>
       </div>
 
@@ -62,5 +78,8 @@
     </div>
     <script src="javascript/media-play.js"></script>
     </div>
+    <?php
+    }
+    ?>
   </body>
 </html>
