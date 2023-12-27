@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2023 at 03:39 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Dec 27, 2023 at 08:52 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,16 +35,48 @@ CREATE TABLE `artist` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `belong`
+--
+
+CREATE TABLE `belong` (
+  `playlistid` int(11) NOT NULL,
+  `songId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `belong`
+--
+
+INSERT INTO `belong` (`playlistid`, `songId`) VALUES
+(4, 3),
+(4, 4),
+(5, 5),
+(6, 5),
+(6, 6),
+(6, 8);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `playlist`
 --
 
 CREATE TABLE `playlist` (
-  `PlaylistId` int(11) NOT NULL,
-  `SongId` int(11) NOT NULL,
-  `PlaylistName` varchar(100) NOT NULL,
-  `Global` tinyint(1) DEFAULT NULL,
-  `UserId` int(11) NOT NULL
+  `playlistid` int(11) NOT NULL,
+  `playlistname` varchar(100) NOT NULL,
+  `global` tinyint(1) DEFAULT NULL,
+  `userid` int(11) NOT NULL,
+  `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `playlist`
+--
+
+INSERT INTO `playlist` (`playlistid`, `playlistname`, `global`, `userid`, `image`) VALUES
+(4, 'blackpink', NULL, 1, 'playlist/44753.jpg'),
+(5, ' vjemren', NULL, 1, 'playlist/44753.jpg'),
+(6, ' vbery', NULL, 1, 'playlist/12325.jpg');
 
 -- --------------------------------------------------------
 
@@ -53,9 +85,9 @@ CREATE TABLE `playlist` (
 --
 
 CREATE TABLE `song` (
-  `SongId` int(11) NOT NULL,
-  `SName` varchar(80) NOT NULL,
-  `SArtist` varchar(80) NOT NULL,
+  `songid` int(11) NOT NULL,
+  `sname` varchar(80) NOT NULL,
+  `sartist` varchar(80) NOT NULL,
   `path` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -63,8 +95,12 @@ CREATE TABLE `song` (
 -- Dumping data for table `song`
 --
 
-INSERT INTO `song` (`SongId`, `SName`, `SArtist`, `path`) VALUES
-(3, 'Remuno', 'ajae', 'songs/Bet You Wanna (feat. Cardi B) - BLACKPINK, Cardi B.mp3');
+INSERT INTO `song` (`songid`, `sname`, `sartist`, `path`) VALUES
+(3, 'Remuno', 'ajae', 'songs/Bet You Wanna (feat. Cardi B) - BLACKPINK, Cardi B.mp3'),
+(4, 'mamgna', 'agnkr', 'songs/Cheshire - ITZY.mp3'),
+(5, 'mamnjv', 'agnk', 'songs/DDU-DU DDU-DU - BLACKPINK.mp3'),
+(6, 'mamnjv nkjkj', 'agnkjk', 'songs/Fitoor - Mithoon, Arijit Singh, Neeti Mohan, Karan Malhotra.mp3'),
+(8, 'mamnjv n', 'agnkjk', 'songs/BOOMBAYAH - BLACKPINK.mp3');
 
 -- --------------------------------------------------------
 
@@ -84,12 +120,18 @@ CREATE TABLE `tags` (
 --
 
 CREATE TABLE `user` (
-  `UserId` int(11) NOT NULL,
-  `UserName` varchar(30) DEFAULT NULL,
-  `Email` varchar(30) DEFAULT NULL,
-  `Password` varchar(20) DEFAULT NULL,
-  `Type` varchar(10) NOT NULL DEFAULT 'User'
+  `userid` int(11) NOT NULL,
+  `username` varchar(30) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userid`, `username`, `email`, `password`) VALUES
+(1, 'Manas Ranjan Bariha', 'manasbariha779@gmail.com', 'manas');
 
 --
 -- Indexes for dumped tables
@@ -105,16 +147,15 @@ ALTER TABLE `artist`
 -- Indexes for table `playlist`
 --
 ALTER TABLE `playlist`
-  ADD PRIMARY KEY (`PlaylistId`),
-  ADD UNIQUE KEY `SongId` (`SongId`),
-  ADD UNIQUE KEY `Favourites` (`PlaylistName`,`UserId`);
+  ADD PRIMARY KEY (`playlistid`),
+  ADD UNIQUE KEY `Favourites` (`playlistname`,`userid`);
 
 --
 -- Indexes for table `song`
 --
 ALTER TABLE `song`
-  ADD PRIMARY KEY (`SongId`),
-  ADD UNIQUE KEY `SName` (`SName`);
+  ADD PRIMARY KEY (`songid`),
+  ADD UNIQUE KEY `SName` (`sname`);
 
 --
 -- Indexes for table `tags`
@@ -126,8 +167,8 @@ ALTER TABLE `tags`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`UserId`),
-  ADD UNIQUE KEY `Email` (`Email`);
+  ADD PRIMARY KEY (`userid`),
+  ADD UNIQUE KEY `Email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -137,19 +178,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `playlist`
 --
 ALTER TABLE `playlist`
-  MODIFY `PlaylistId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `playlistid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `song`
 --
 ALTER TABLE `song`
-  MODIFY `SongId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `songid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

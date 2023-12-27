@@ -22,20 +22,9 @@
 
   <body>
     <?php 
-    function display_footer($songid){
-      require_once("db-connect.php");
-      $qry="SELECT * FROM song where songid=$songid";
-      $res=$conn->query($qry);
-      $name="";
-      $id="";
-      $path="";
-      $author="";
-      if($data=$res->fetch_assoc()){
-        $name=$data["sname"];
-        $id=$data["songid"];
-        $path=$data["path"];
-        $author=$data["sartist"];
-      }
+    function display_footer($songid,$path,$name,$author){
+      // require_once("db_connect.php");
+      
       ?>
     <div class="footer">
     <audio  id="song">
@@ -56,9 +45,9 @@
 
       <div class="col-12 col-md-6 row">
         <div class="w-100 mx-auto text-center col-12">
-          <a href="#" class="btn btn-danger"
+          <button onclick="loadPreviousSong()" class="btn btn-danger"
             ><i class="fa-solid fa-backward-fast"></i
-          ></a>
+          ></button>
           <button
             id="controlIcon"
             href="#"
@@ -67,7 +56,7 @@
           >
             <i id="ctrl" class="fa-solid fa-play"></i>
           </button>
-          <button href="#" class="btn btn-danger" id="controlIcon">
+          <button onclick="loadNextSong()" class="btn btn-danger" id="controlIcon">
             <i class="fa-solid fa-backward-fast fa-rotate-180"></i>
           </button>
         </div>
@@ -81,5 +70,6 @@
     <?php
     }
     ?>
+     <script src="javascript/main.js"></script>
   </body>
 </html>
