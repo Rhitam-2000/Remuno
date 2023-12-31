@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website with Sidebar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #sidebar {
+            width: 250px;
+            height: 100%;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        #sidebar button {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            border: none;   
+            color: rgba(255, 255, 255, 0.439);
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: #333;
+        }
+
+        #sidebar button:hover {
+            color: #f1f1f1;
+            background-color: #555; /* Change color on hover */
+        }
+
+        #content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .pl, .opt {
+            display: none; /* Hide by default */
+        }
+
+    </style>
+</head>
+<body class="bg-dark text-white">
+
+<div id="sidebar" class="bg-dark text-white">
+    <button class="bg-dark"><i class="bi bi-house-door"></i> Home</button>
+    <button id="lib" class="bg-dark"><i class="bi bi-music-note-list"></i> Library</button>
+    <div class="pl">
+        <button class="bg-dark">Playlist 1</button>
+        <button class="bg-dark">Playlist 2</button>
+    </div>
+    
+    <button id="qa" class="bg-dark "><i class="bi bi-rocket-takeoff"></i> Quick Access</button>
+    <div class="opt">
+        <button class="bg-dark ">Option 1</button>
+        <button class="bg-dark ">Option 2</button>
+        <button class="bg-dark ">Option 3</button>
+    </div>
+</div>
+
+<div id="content">
+</div>
+
+<script>
+    $("#lib").click(function(){
+            $(".pl").toggle();
+    })
+    $("#qa").click(function(){
+            $(".opt").toggle();
+    })
+</script>
+</body>
+</html>

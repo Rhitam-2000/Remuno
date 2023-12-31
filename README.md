@@ -6,3 +6,7 @@ Created Remuno Database with 5 tables
 3. Song
 4. Tags
 5. Playlist
+
+
+Created side bar 
+Created a webpage to fetch playlist
