@@ -17,18 +17,19 @@ if(isset($_POST['save'])) {
         $_SESSION["email"] = $email;
         $_SESSION["password"] = $password;
         // header("Location: login.php");
-        require_once "connect.php";
+        require_once "db_connect.php";
         $check_email_query = "SELECT * FROM user WHERE Email  = '$email'";
         $result = $conn->query($check_email_query);
         if ($result->num_rows > 0) {
             echo '<script>alert("Email already exists, please use another email.");</script>';
+            header("location: login.php");
         } else {
             // Perform registration - Insert user data into the database
             $insert_query = "INSERT INTO user (UserName, Email, Password) VALUES ('$name', '$email', '$password')";
             if ($conn->query($insert_query) === TRUE) {
                 $_SESSION["registration_success"] = true;
                  // Set registration success flag in session
-                header("Location: login.php"); // Redirect to login page
+                header("location: login.php"); // Redirect to login page
                 
             } else {
                 // Registration failed, set error message...
@@ -49,15 +50,15 @@ if(isset($_POST['save'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/login-style.css">
     <title>Document</title>
 </head>
 <body>
     <div class="bg-img">
         <div class="content">
             <header>Registation Form</header>
-            <form action="index.php" method="post">
+            <form action="" method="post">
           <div class="form-group">
             <i class="bi bi-person-fill"></i>
             <input  class="form-control " type="text" placeholder="Enter your name " name="name" required >
@@ -75,7 +76,7 @@ if(isset($_POST['save'])) {
         </div>
         <input type="submit" class="butt" value="Signup" name="save" >
         <div class="signin"> have  a account?
-            <a href="#">Signin Now</a>
+            <a href="login.php">Signin Now</a>
         </div>
     </form>
     </div>

@@ -1,5 +1,6 @@
 <?php 
   session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +39,16 @@
         </li>
       </ul>
     </div>
-    <div class="loginbtn">Login/signup</div>
+    <?php 
+      if(isset($_SESSION["id"]))
+      {
+        ?>
+        <div class="loginbtn" id="profilebtn"><?php echo "cirlce".$_SESSION['login_user']?></div>
+        <?php
+      }else{
+    ?>
+    <div class="loginbtn" id="loginbtn">Login/signup</div>
+    <?php }?>
   </div>
 </nav>
     </section>
