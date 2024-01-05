@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2024 at 04:19 PM
+-- Generation Time: Jan 05, 2024 at 06:48 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -87,7 +87,13 @@ INSERT INTO `playlist` (`playlistid`, `playlistname`, `global`, `userid`, `image
 (6, ' vbery', NULL, 1, 'playlist/12325.jpg'),
 (8, 'Animal', NULL, 1, 'playlist/animal.jpeg'),
 (9, 'Fighter', NULL, 1, 'playlist/Sher-Khul-Gaye-From-Fighter-Hindi-2023-20231215112738-500x500.jpg'),
-(10, 'Alta makhi', NULL, 1, 'playlist/alta makhi.jpg');
+(10, 'Alta makhi', NULL, 1, 'playlist/alta makhi.jpg'),
+(11, 'kalastar', NULL, 1, 'playlist/kalastar.jpg'),
+(13, 'bornpink', NULL, 1, 'playlist/blackpink.webp'),
+(14, 'kho geye hum tum', NULL, 1, 'playlist/kho geye hum tum.jpg'),
+(15, 'Charlie puth', NULL, 1, 'playlist/charlie puth.jpg'),
+(16, 'Best of Justin Bieber', NULL, 1, 'playlist/best of justine bieber.jpeg'),
+(17, 'hindi top song', NULL, 1, 'playlist/hindiop100.webp');
 
 -- --------------------------------------------------------
 
@@ -151,7 +157,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userid`, `username`, `email`, `password`) VALUES
 (2, 'Manas Ranjan Bariha', 'manasbariha779@gmail.com', 'manasbariha'),
-(4, 'Shubha', 'shubha@gmail.com', 'shubha123');
+(4, 'Shubha', 'shubha@gmail.com', 'shubha123'),
+(5, 'Rhitam Bhattacharyya', 'rhitam@remuno.com', '1234567890');
 
 --
 -- Indexes for dumped tables
@@ -198,7 +205,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `playlist`
 --
 ALTER TABLE `playlist`
-  MODIFY `playlistid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `playlistid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `song`
@@ -210,7 +217,7 @@ ALTER TABLE `song`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

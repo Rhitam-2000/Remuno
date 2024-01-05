@@ -1,9 +1,11 @@
+
 .footerbtn{
     text-decoration: none;
-    color: grey !important;
+    color: white !important;
 
 }
 
 .footerbtn:hover{
-    color: white;
+    color: skyblue !important;
+    transform: scale(1.2);
 }
