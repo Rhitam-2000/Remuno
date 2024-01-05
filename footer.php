@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Footer</title>
+    <link rel="stylesheet" href="./css/footer-style.css">
     <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <script src="./js/jquery-3.7.1.js"></script>
 </head>
 <body>
     <!-- Remove the container if you want to extend the Footer to full width. -->
@@ -61,16 +63,16 @@
               Useful links
             </h6>
             <p>
-              <a class="text-white">Your Account</a>
+              <button  onclick="getprofile()" class="btn footerbtn border-0 p-0">Your Account</button>
             </p>
             <p>
-              <a class="text-white">Become an Affiliate</a>
+              <button  onclick="getHome()" class="btn footerbtn border-0 p-0">Home</button>
             </p>
             <p>
-              <a class="text-white">Shipping Rates</a>
+              <button  onclick="getPlaylist()" class="btn footerbtn border-0 p-0">Playlist</button>
             </p>
             <p>
-              <a class="text-white">Help</a>
+              <button  onclick="getLogout()" class="btn footerbtn border-0 p-0">Logout</button>
             </p>
           </div>
 
@@ -154,5 +156,6 @@
 
 <!-- End of .container -->
     <script src="assets\bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>

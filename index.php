@@ -31,12 +31,7 @@ session_start();
           <button class="nav-link active text-light" aria-current="page" id="homebtn"><span class="d-block">Home</span></button>
         </li>
         <li class="nav-item">
-          <button class="nav-link text-light" id="playlistbtn">playlist</button>
-        </li>
-        <li class="nav-item dropdown">
-          <button class="nav-link text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            favroutes
-          </button>
+          <button class="nav-link text-light" id="playlistbtn">Playlist</button>
         </li>
       </ul>
     </div>
@@ -44,7 +39,7 @@ session_start();
     if (isset($_SESSION["id"])) {
       ?>
          <div class="loginbtn text-light nav-link dropdown-toggle" id="profilebtn" aria-expanded="false">
-    <i class="fa-regular fa-user"></i><?php echo $_SESSION['login_user'] ?>
+    <i class="fa-regular fa-user"></i> <?php echo $_SESSION['login_user'] ?>
   </div>
   <ul class="dropdown-menu" aria-labelledby="profilebtn">
     <li><a class="dropdown-item" href="#">Action</a></li>

@@ -25,22 +25,28 @@ $(document).ready(function () {
         });
       }
       $("#homebtn").click(function(){
-        $.ajax({
-            url:"get_homepage.php",
-            type:"GET",
-            success:function(data)
-            {
-                $('#content').empty().html(data);
-            }
-        })
+        getHome();
       })
 });
+function getHome(){
+  $.ajax({
+    url:"get_homepage.php",
+    type:"GET",
+    success:function(data)
+    {
+        $('#content').empty().html(data);
+    }
+})
+}
 $("#loginbtn").click(function()
 {
   console.log("clicked");
   window.location.href = "login.php";
 })
 $("#profilebtn").click(function(){
+getprofile();
+})
+function getprofile(){
   console.log("profile");
   $.ajax({
     url:"profile.php",
@@ -49,10 +55,13 @@ $("#profilebtn").click(function(){
     {
       $('#content').empty().html(data);
     }
-  })
 })
+}
 $("#playlistbtn").click(function()
 {
+  getPlaylist();
+})
+function getPlaylist(){
   $.ajax({
     url:"playlist.php",
     type:"GET",
@@ -61,4 +70,7 @@ $("#playlistbtn").click(function()
       $('#content').empty().html(data)
     }
   })
-})
+}
+function getLogout(){
+  window.location.href="logout.php";
+}

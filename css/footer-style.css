@@ -1,0 +1,9 @@
+.footerbtn{
+    text-decoration: none;
+    color: grey !important;
+
+}
+
+.footerbtn:hover{
+    color: white;
+}
