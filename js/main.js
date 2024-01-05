@@ -40,3 +40,25 @@ $("#loginbtn").click(function()
   console.log("clicked");
   window.location.href = "login.php";
 })
+$("#profilebtn").click(function(){
+  console.log("profile");
+  $.ajax({
+    url:"profile.php",
+    type:"GET",
+    success:function(data)
+    {
+      $('#content').empty().html(data);
+    }
+  })
+})
+$("#playlistbtn").click(function()
+{
+  $.ajax({
+    url:"playlist.php",
+    type:"GET",
+    success:function(data)
+    {
+      $('#content').empty().html(data)
+    }
+  })
+})

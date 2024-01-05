@@ -58,11 +58,11 @@ if ($_SERVER["REQUEST_METHOD"]==="POST") {
     $qry="select b.songid as songid,p.playlistid as playlistid,s.sname as sname,s.sartist as artist,s.path as path,p.image as image  from belong as b,playlist as p,song as s where p.playlistid=$id and b.playlistid=$id and b.songid=s.songid";
     $result = $conn->query($qry);
     ?>
-    <table class="table  table-hover">
+    <table class="table  table-hover table-dark border-0 table-striped-rows">
         <tr>
             <td></td>
-            <td class="col">Name</td>
-            <td class="col">Artist</td>
+            <td class="cols">Name</td>
+            <td class="cols">Artist</td>
             <td></td>
         </tr>
     <?php

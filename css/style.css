@@ -1,6 +1,9 @@
 .card{
     cursor: pointer;
 }
+body{
+    background-color: blueviolet;
+}
 .box{
     height: 500px;
     width: 500px;
@@ -19,6 +22,20 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: black;
+    background-color: rgb(99, 39, 120);
     
 }
+.card{
+    color:white;
+    
+}
+.loginbtn{
+    cursor: pointer;
+}
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: #053a5f;
+    height: 0.5rem;
+  }
+  .bg-purple{
+    background-color: rgb(99, 39, 120);
+  }
