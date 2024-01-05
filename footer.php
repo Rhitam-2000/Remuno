@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="assets/bootstrap.min.css">
 </head>
 <body>
-    <!-- Remove the container if you want to extend the Footer to full width. -->
 
-  <!-- Footer -->
   <footer
           class="text-center text-lg-start text-white"
           style="background-color: #45526e"
