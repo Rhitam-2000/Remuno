@@ -3,56 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Playlist</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .songs img{
-            height: 150px;
-        }
-        .H{
-            width:%;
-        }
-    </style>
+    <title>Playlists</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <script src="js/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-dark text-white">
-<div class="row">
-<div class="sidebar col-md-3">  
-    <?php
-    include_once "Sidebar.html";
+<body class="bg-dark text-light">
+    <?php 
+        require_once("db_connect.php");
+        require_once("cards.php");
+        $qry="SELECT * FROM playlist";
+        $result=$conn->query($qry);
+        $playlists=[];
+        while($row=$result->fetch_assoc()){
+            array_push($playlists,$row);
+        }
     ?>
-</div>
+    <div class="container my-5">
+        <div>
+            <div class="d-flex justify-content-between">
 
-<div class="playlist col-md-9">
-    <header class="mt-5">
-    <img class="img-fluid img-thumbnail-border-0" src="./Images/Attention_(Charlie_Puth_song)_single_cover.svg.png" alt="Attention">
-    <h1>My Playlist</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dolore harum voluptatibus explicabo ullam, aut reiciendis nemo facilis fugiat. Dolorem labore eligendi iure error id?</p>
-    </header>
-
-    <div class="container mt-5">
-        <div class="songs">
-            <table border=1 style="width:100%" class="table-dark table-sm">
-                <tr>
-                    <th></th>
-                    <th class="H">Name</th>
-                    <th class="H">Artist</th>
-                    <th class="H">Time</th>
-                </tr>
-                <tr>
-                    <td><img class="simg" src="./Images/Attention_(Charlie_Puth_song)_single_cover.svg.png" alt="Attention"></td>
-                    <td>Attention</td>
-                    <td>Charlie Puth</td>
-                    <td>03:54</td>
-                </tr>
-            </table>
+            </div>
+            <div class="row">
+                <?php 
+                    foreach($playlists as $playlist) {
+                        playlist_card($playlist);
+                    }
+                ?>
+            </div>
         </div>
+
     </div>
-</div>
-</div>
+    <?php ?>
+    <script> src="js/main.js"</script>
 
-
-<!-- Bootstrap JS and Popper.js (required for Bootstrap's JavaScript plugins) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

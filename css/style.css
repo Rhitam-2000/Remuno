@@ -1,0 +1,41 @@
+.card{
+    cursor: pointer;
+}
+body{
+    background-color: blueviolet;
+}
+.box{
+    height: 500px;
+    width: 500px;
+}
+.box1{
+    height: 100px;
+    width: 100px;
+}
+.box-2{
+    height: 100%;
+    width: 100%;
+}
+#player{
+    height: 13%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(99, 39, 120);
+    
+}
+.card{
+    color:white;
+    
+}
+.loginbtn{
+    cursor: pointer;
+}
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: #053a5f;
+    height: 0.5rem;
+  }
+  .bg-purple{
+    background-color: rgb(99, 39, 120);
+  }
