@@ -58,9 +58,7 @@ if (isset($_POST['save'])) {
             <i class="bi bi-key-fill"></i>
             <input class="form-control " type="password" placeholder="Enter your password " name="password" required >
         </div>
-        <div class="form-checkcheck">
-            <input type="checkbox"  id="check_1"> <small>I read and agree to Term and condition</small> 
-        </div>
+        
         <input type="submit" class="butt" value="Signin" name="save" >
         <div class="text-center" >
             Don't have an Account?

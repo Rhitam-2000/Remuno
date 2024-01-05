@@ -4,9 +4,9 @@ require_once('db_connect.php'); // Include the database connection script
 
 if (isset($_POST['update'])) {
     $userId = $_SESSION['id']; // Replace 'user' with the actual session variable holding user ID
-    $oldPassword = $_POST['old_password'];
-    $newPassword = $_POST['new_password'];
-    $confirmPassword = $_POST['confirm_password'];
+    $oldPassword = $_POST['old'];
+    $newPassword = $_POST['new'];
+    $confirmPassword = $_POST['retype']; // Update this to match the form input name
 
     // Retrieve user's current password from the database (in plaintext)
     $sql = "SELECT password FROM users WHERE id = '$userId'";
@@ -40,9 +40,10 @@ if (isset($_POST['update'])) {
     }
 
     $conn->close();
-}
 
-header('location: profile.php');
+    header('Location: profile.php');
+    exit(); // Always include an exit after a header redirect
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,37 +55,71 @@ header('location: profile.php');
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background:  linear-gradient(#020024 0%, #c237dc 87%,#c3178b 100%); /* Change gradient colors */
-            color: white;
+            background-color: purple; /* Simple background color */
+            color: #333; /* Text color */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
         }
 
         .bg-color {
-            background-color: rgba(255, 255, 255, 0.5); 
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        h2 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+        }
+        .btn.bg-purple {
+    background-color: purple;
+    color: white; 
+  }
+        .btn.bg-purple:hover {
+    background-color: blue;
+    color: white; 
+  }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="bg-color">
-            <h2>Change Password</h2>
-            <form action="change_password.php" method="post">
-                <div class="form-group">
-                    <label for="old">Old Password:</label>
-                    <input type="password" class="form-control" id="old" name="old" required>
-                </div>
-                <div class="form-group">
-                    <label for="new">New Password:</label>
-                    <input type="password" class="form-control" id="new" name="new" required>
-                </div>
-                <div class="form-group">
-                    <label for="retype">Confirm New Password:</label>
-                    <input type="password" class="form-control" id="retype" name="retype" required>
-                </div>
-                <button type="submit" class="btn btn-primary" name="update">Update</button>
-            </form>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 bg-color">
+                <h2>Change Password</h2>
+                 <!-- Display error message -->
+                 <?php if(isset($_SESSION['error'])): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo $_SESSION['error']; ?>
+                    </div>
+                    <?php unset($_SESSION['error']); ?>
+                <?php endif; ?>
+                <form action="change_password.php" method="post">
+                    <div class="form-group">
+                        <label for="old">Old Password:</label>
+                        <input type="password" class="form-control" id="old" name="old" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new">New Password:</label>
+                        <input type="password" class="form-control" id="new" name="new" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="retype">Confirm New Password:</label>
+                        <input type="password" class="form-control" id="retype" name="retype" required>
+                    </div>
+                    <button type="submit" class="btn bg-purple" name="update">Update</button>
+                </form>
+            </div>
         </div>
     </div>
 

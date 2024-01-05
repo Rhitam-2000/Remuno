@@ -31,8 +31,13 @@ $conn->close();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/profile-style.css" rel="stylesheet">
     <style>
-      
-    </style>
+ 
+
+  .btn.bg-purple:hover {
+    background-color: blue;
+    color: white; 
+  }
+</style>
 </head>
 <body>
     <div class="container rounded bg-white mt-5 mb-5">
@@ -57,7 +62,8 @@ $conn->close();
                     </div> -->
                     <div class="text-center">
                             <!-- Button to change password -->
-                            <a href="change_password_page.php" class="btn bg-purple">Change Password</a>
+                            <a href="change_password.php" class="btn bg-purple">Change Password</a>
+                            <a href="logout.php" class="btn bg-purple">Log out</a>
                         
                     </div>
                 </div>
@@ -65,31 +71,7 @@ $conn->close();
         </div>
     </div>
 
-    <!-- Change Password Modal -->
-    <!-- <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="currentPassword" class="form-label">Current Password</label>
-                        <input type="password" class="form-control" id="currentPassword" placeholder="Enter current password">
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
-                        <input type="password" class="form-control" id="confirmNewPassword" placeholder="Confirm new password">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
+  
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
