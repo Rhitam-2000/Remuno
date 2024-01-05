@@ -15,8 +15,8 @@
         }
         $ind = array_search($id, $data);
 
-        echo $ind;
-        var_dump($data);
+        // echo $ind;
+        // var_dump($data);
         $nextIndex = ($ind !== false) ? (($ind + 1) % (count($data))) : 0;
         echo $data[$nextIndex];
     }

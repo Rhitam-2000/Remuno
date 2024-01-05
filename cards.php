@@ -12,7 +12,7 @@
         function playlist_card($playlist){
             $id = $playlist['playlistid'];
             ?>
-            <div class="col-sm-6 col-md-4 col-lg-2 card border-0 playlist-card" data-playlist-id="<?php echo $id; ?>">
+            <div class="col-sm-6 col-md-4 col-lg-2 card bg-dark text-white border-0 playlist-card" data-playlist-id="<?php echo $id; ?>">
                 <img src="<?php echo $playlist["image"]; ?>" class="card-img-top" style="height:200px;width:200px" alt="">
                 <div class="card-body">
                     <h4><?php echo $playlist["playlistname"]; ?></h4>
