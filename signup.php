@@ -58,8 +58,7 @@ if(isset($_POST['save'])) {
     <div class="bg-img">
         <div class="content">
             <header>Registation Form</header>
-            <form action="" method="post">
-          <div class="form-group">
+            <form action="" method="post" onsubmit="validate(event)">          <div class="form-group">
             <i class="bi bi-person-fill"></i>
             <input  class="form-control " type="text" placeholder="Enter your name " name="name" required >
         </div>
@@ -83,54 +82,46 @@ if(isset($_POST['save'])) {
         
  
 
-<script>
-function validate(e){ 
-    try{
-    const nameInput = document.querySelector('input[name="name"]');
-    const emailInput = document.querySelector('input[name="email"]');
-    const passwordInput = document.querySelector('input[name="password"]');
-    const agreementCheckbox = document.getElementById('check_1');
-    let error = false;
+    <script>
+function validate(e) {
+    try {
+        const nameInput = document.querySelector('input[name="name"]');
+        const emailInput = document.querySelector('input[name="email"]');
+        const passwordInput = document.querySelector('input[name="password"]');
+        const agreementCheckbox = document.getElementById('check_1');
+        let error = false;
 
-    if (!nameInput.value.trim()) {
-        alert('Please enter your name.');
-        error = true;
-      
-    }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
-           alert('Please enter a valid email address.');
-           error = true;
-      }
-      //password check
-      let passPat = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,16}$/;
-
-      if(password === "" || password === null){
-        alert('password is Required');
-        error = true;
-      }
-    else if(!password .match(passPat)){
-            alert('Please enter a strong password(8-16) with uppercase lowercase numbers and special chars.');
+        if (!nameInput.value.trim()) {
+            alert('Please enter your name.');
             error = true;
-    }
-
-   //checkbox agree
-    if (!agreementCheckbox.checked) {
-        alert('Please agree to the terms and conditions.');
-        error = true;
-      }
-      if(error){
-            e.preventDefault()
         }
-    } catch(error){
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+            alert('Please enter a valid email address.');
+            error = true;
+        }
+
+        let passPat = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,16}$/;
+
+        if (passwordInput.value === "" || passwordInput.value === null) {
+            alert('Password is required.');
+            error = true;
+        } else if (!passwordInput.value.match(passPat)) {
+            alert('Please enter a strong password(8-16) with uppercase, lowercase, numbers, and special characters.');
+            error = true;
+        }
+        if (!agreementCheckbox.checked) {
+            alert('Please agree to the terms and conditions.');
+            error = true;
+        }
+
+        if (error) {
+            e.preventDefault();
+        }
+    } catch (error) {
         console.log(error);
-        e.preventDefault()
+        e.preventDefault();
     }
 }
 </script>
-
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></scrip>
-</body>
-</html>

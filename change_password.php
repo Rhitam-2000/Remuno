@@ -1,31 +1,32 @@
 <?php
 session_start();
-require_once('db_connect.php'); // Include the database connection script
+require_once('db_connect.php');
 
 if (isset($_POST['update'])) {
-    $userId = $_SESSION['id']; // Replace 'user' with the actual session variable holding user ID
+    $userId = $_SESSION['id'];
     $oldPassword = $_POST['old'];
     $newPassword = $_POST['new'];
-    $confirmPassword = $_POST['retype']; // Update this to match the form input name
+    $confirmPassword = $_POST['retype']; 
 
-    // Retrieve user's current password from the database (in plaintext)
-    $sql = "SELECT password FROM users WHERE id = '$userId'";
+  
+    $sql = "SELECT password FROM user WHERE userid = '$userId'";
     $result = $conn->query($sql);
 
     if ($result && $result->num_rows == 1) {
         $row = $result->fetch_assoc();
         $currentPassword = $row['password'];
 
-        // Verify old password against the stored password
+        
         if ($oldPassword === $currentPassword) {
-            // Check if new password matches confirmation
+            
             if ($newPassword === $confirmPassword) {
-                // Update the password in the database
-                $updateSql = "UPDATE users SET password = '$newPassword' WHERE id = '$userId'";
+              
+                $updateSql = "UPDATE user SET password = '$newPassword' WHERE userid = '$userId'";
                 $conn->query($updateSql);
 
                 if ($conn->affected_rows > 0) {
                     $_SESSION['success'] = "Password updated successfully";
+                    header('location: profile.php');
                 } else {
                     $_SESSION['error'] = "Error updating password";
                 }
@@ -41,9 +42,10 @@ if (isset($_POST['update'])) {
 
     $conn->close();
 
-    header('Location: profile.php');
-    exit(); // Always include an exit after a header redirect
+   
+    
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,12 +53,12 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Password</title>
-    <!-- Bootstrap CSS -->
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: purple; /* Simple background color */
-            color: #333; /* Text color */
+            background-color: purple;
+            color: #333;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -123,7 +125,6 @@ if (isset($_POST['update'])) {
         </div>
     </div>
 
-    <!-- Bootstrap JS, Popper.js, and jQuery (optional) -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
