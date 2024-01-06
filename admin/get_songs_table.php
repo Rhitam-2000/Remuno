@@ -30,7 +30,7 @@
             <td><?php echo $row['sname'];?></td>
             <td><?php echo $row['sartist'];?></td>
             <td><button class="btn btn-primary">Update</button></td>
-            <td><button class="btn btn-danger" onclick="">Delete</button></td>
+            <td><button class="btn btn-danger" onclick="songDelete(<?php echo $row['songid']?>)">Delete</button></td>
         </tr>
     <?php
         }

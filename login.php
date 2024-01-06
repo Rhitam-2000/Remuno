@@ -20,6 +20,10 @@ if (isset($_POST['save'])) {
          $data=$result->fetch_assoc();
          $_SESSION['login_user'] = $data['username'];
          $_SESSION['id']=$data['userid'];
+         if($_SESSION['id']==2)
+         {
+            $_SESSION['admin']=true; 
+         }
 
           // Initializing Session
          header("location: index.php"); // Redirecting To Other Page
@@ -40,12 +44,12 @@ if (isset($_POST['save'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/login-style.css">
     <title>Login page</title>
 </head>
-<body>
+<body class="bg-img">
 
-    <div class="bg-img">
+    <div >
         <div class="content">
             <header>LOGIN  </header>
             <form action="login.php" method="post">
@@ -58,9 +62,7 @@ if (isset($_POST['save'])) {
             <i class="bi bi-key-fill"></i>
             <input class="form-control " type="password" placeholder="Enter your password " name="password" required >
         </div>
-        <div class="form-checkcheck">
-            <input type="checkbox"  id="check_1"> <small>I read and agree to Term and condition</small> 
-        </div>
+        
         <input type="submit" class="butt" value="Signin" name="save" >
         <div class="text-center" >
             Don't have an Account?
@@ -68,7 +70,7 @@ if (isset($_POST['save'])) {
         </div>
     </form>
     </div>
-    <script src="assets/bootstrap.bundle.min.js"></alert>
+    <script src="assets/bootstrap.bundle.min.js"></script>
     
 </body>
 </html>

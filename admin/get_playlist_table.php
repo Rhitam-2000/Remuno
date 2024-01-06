@@ -29,12 +29,14 @@
             <td><?php echo $row['playlistname'];?></td>
             <td><img src="../<?php echo $row['image'];?>" height="50px" width="50px" alt=""></td>
             <td><button class="btn btn-primary" onclick="playlistUpdate(<?php echo $row['playlistid'];?>)">Update</button></td>
+            <td><button class="btn btn-primary" onclick="playlistDelete(<?php echo $row['playlistid'];?>)">Delete</button></td>
+
         </tr>
     <?php
         }
 
         ?>
     </table>
-
+        <script src="js/admin.js"></script>
 </body>
 </html>

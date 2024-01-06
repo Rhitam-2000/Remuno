@@ -40,7 +40,7 @@
             </div>
             <div class="row">
                 <?php 
-                    for($i=5;$i<count($playlists);$i++) {
+                    for($i=5;$i<=11;$i++) {
                         playlist_card($playlists[$i]);
                     }
                 ?>

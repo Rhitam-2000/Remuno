@@ -33,11 +33,6 @@ session_start();
         <li class="nav-item">
           <button class="nav-link text-light" id="playlistbtn">playlist</button>
         </li>
-        <li class="nav-item dropdown">
-          <button class="nav-link text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            favroutes
-          </button>
-        </li>
       </ul>
     </div>
     <?php

@@ -50,4 +50,43 @@ function songAdd(){
         }
     }) 
 }
-
+function songDelete(id)
+{
+    $.ajax({
+        url:"song_delete.php",
+        method:"POST",
+        data:{
+            id:id
+        },
+        success:function(data)
+        {
+            alert(data);
+        }
+    }) 
+}
+function songPlaylist(){
+    $.ajax({
+        url:"playlist_upload_form.php",
+        method:"GET",
+        success:function(data)
+        {
+            console.log($('#content'));
+            console.log(data);
+            $("#content").empty().html(data);
+        }
+    }) 
+}
+function playlistDelete(id)
+{
+    $.ajax({
+        url:"playlist_delete.php",
+        method:"POST",
+        data:{
+            id:id
+        },
+        success:function(data)
+        {
+            alert(data)
+        }
+    }) 
+}

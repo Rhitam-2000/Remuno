@@ -3,9 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    height: 100vh;
+}
 .bg-img{
     background: linear-gradient(#020024 0%, #c237dc 87%,#c3178b 100%);
-    height: 150vh;
     background-size: cover;
     background-position: center;
 }
@@ -34,19 +36,10 @@
     width: 100%;
     display: flex;
     margin-bottom: 20px;
-    /* background: rgba(255, 255, 255, 0.94); */
 }
-/* .form-group i {
-    color: #222;
-    width: 40px;
-    line-height: 45px;
-    padding: 0 10px;
-} */
 
 .form-group input {
     flex: 1;
-    /* height: 100%;
-    width: 100%; */
     background: rgba(255, 255, 255, 0.94);
     border: none;
     outline: none;
@@ -92,7 +85,7 @@ input[type="submit"]:hover {
 }
 .form-group i{
    
-    font-size: 30px; /* Adjust the icon size */
-    margin-right: 10px; /* Add spacing between icon and input */
+    font-size: 30px;
+    margin-right: 10px; 
 }
 

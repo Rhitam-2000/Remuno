@@ -2,7 +2,7 @@
     if($_SERVER['REQUEST_METHOD']==='POST')
     {
         $id=$_POST['id'];
-        $qry="select * from song where songid=$id ";
+        $qry="select * from playlist where playlistid=$id ";
         if($conn->query($qry))
         {
             echo "<script>alert('song is deleted')</script>";

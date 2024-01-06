@@ -8,15 +8,9 @@ if(isset($_POST['save'])) {
     $password = trim($_POST["password"]);
     $checkbox = isset($_POST['check_1']) ? $_POST['check_1'] : false;
     
-    
-    // if(empty($name) || empty($email) || empty($password) || !$checkbox) {
-    //     $error_message = "Please fill all the required fields and agree to terms.";
-    // } else {
-        // Store user input in session variables
         $_SESSION["name"] = $name;
         $_SESSION["email"] = $email;
         $_SESSION["password"] = $password;
-        // header("Location: login.php");
         require_once "db_connect.php";
         $check_email_query = "SELECT * FROM user WHERE Email  = '$email'";
         $result = $conn->query($check_email_query);
@@ -54,8 +48,8 @@ if(isset($_POST['save'])) {
     <link rel="stylesheet" href="css/login-style.css">
     <title>Document</title>
 </head>
-<body>
-    <div class="bg-img">
+<body class="bg-img">
+    <div >
         <div class="content">
             <header>Registation Form</header>
             <form action="" method="post">
